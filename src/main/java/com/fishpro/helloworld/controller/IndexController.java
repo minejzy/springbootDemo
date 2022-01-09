@@ -20,7 +20,7 @@ public class IndexController {
 //    MyService myService;
     @GetMapping("/say")
     public String say(){
-        return "Hello World";
+        return "Hello World,James";
         /**
          * 下面代码是演示 多模块使用 在 pom.xml 中开启
          * <dependency>

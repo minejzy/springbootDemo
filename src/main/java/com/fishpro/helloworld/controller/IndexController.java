@@ -24,7 +24,7 @@ public class IndexController {
     public String say(){
         //return "Hello World,James";
         //return "hello jenkins, auto pull from github v1" + new Date();
-        return "hello jenkins, auto pull from github and deploy to app server v6 " + new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        return "hello jenkins, auto pull from github and deploy to app server v8 " + new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         /**
          * 下面代码是演示 多模块使用 在 pom.xml 中开启
          * <dependency>

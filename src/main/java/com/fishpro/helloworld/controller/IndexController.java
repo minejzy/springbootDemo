@@ -21,7 +21,7 @@ public class IndexController {
     @GetMapping("/say")
     public String say(){
         //return "Hello World,James";
-        return "hello jenkins, auto pull from github!" + new Date();
+        return "hello jenkins, auto pull from github v1" + new Date();
         /**
          * 下面代码是演示 多模块使用 在 pom.xml 中开启
          * <dependency>

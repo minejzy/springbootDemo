@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * helloword示例
@@ -21,7 +23,8 @@ public class IndexController {
     @GetMapping("/say")
     public String say(){
         //return "Hello World,James";
-        return "hello jenkins, auto pull from github v1" + new Date();
+        //return "hello jenkins, auto pull from github v1" + new Date();
+        return "hello jenkins, auto pull from github v1" + new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         /**
          * 下面代码是演示 多模块使用 在 pom.xml 中开启
          * <dependency>

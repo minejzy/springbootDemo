@@ -1,4 +1,4 @@
-FROM 192.168.8.136/springbootproject/anapsix/alpine-java:latest
+FROM 192.168.8.136:9443/springbootproject/anapsix/alpine-java:latest
 MAINTAINER www.cnblogs.com/minejzy
 RUN rm -rf /tmp/*.jar
 ADD ./target/helloworld-0.0.1-SNAPSHOT.jar /tmp/

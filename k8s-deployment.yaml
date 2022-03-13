@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: APP_NAME
+  namespace: K8S_NAMESPACE
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: APP_NAME
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: APP_NAME
+    spec:
+      #nodeName: change_me_to_Node_name
+      containers: 
+        - image: HARBOR_HOST/DOCKER_IMAGE:IMAGE_TAG
+          imagePullPolicy: IfNotPresent
+          name: APP_NAME
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "200m"
+            requests:
+              memory: "200Mi"
+              cpu: "200m"
+          ports:
+          - name: http
+            containerPort: 8082
+            protocol: TCP
+      imagePullSecrets:
+        - name: reg-secret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: APP_NAME-service
+  namespace: K8S_NAMESPACE
+spec:
+  type: NodePort
+  selector:
+    app: APP_NAME
+  ports:
+    - name: http
+      nodePort: NODE_PORT
+      protocol: TCP
+      port: 8082
+      targetPort: 8082
